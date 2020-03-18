@@ -1,0 +1,9 @@
+package com.manny.AOPdemo.dao;
+
+public class MembershipDao {
+	
+	public void addSillyMember() {
+		System.out.println(getClass()+": Silly member added to Membership!");
+	}
+
+}

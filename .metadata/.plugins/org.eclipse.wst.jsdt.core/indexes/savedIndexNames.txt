@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+/Users/emmanuelquist/Documents/new_java_workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+532632505.index

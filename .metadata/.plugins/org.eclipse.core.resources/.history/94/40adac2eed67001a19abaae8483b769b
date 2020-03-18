@@ -1,0 +1,5 @@
+package com.manny.AOPdemo.aspect;
+
+public class MyCloudLogAsyncAspect {
+
+}

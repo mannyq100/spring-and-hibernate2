@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;spring-aop-z-after-finally&apos; to &apos;spring-aop-zz-after-finally&apos;&#x0A;- Original element: &apos;spring-aop-z-after-finally&apos;&#x0A;- Renamed element: &apos;spring-aop-z-after-finally&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;spring-aop-z-after-finally&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=spring-aop-z-after-finally" name="spring-aop-zz-after-finally" references="true" stamp="1584481196151" version="1.0"/>
+</session>

@@ -1,0 +1,35 @@
+package com.manny.AOPdemo;
+
+import java.util.List;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.manny.AOPdemo.dao.AccountDao;
+import com.manny.AOPdemo.dao.MembershipDao;
+import com.manny.AOPdemo.service.TrafficFortuneService;
+
+public class AroundDempApp {
+
+	public static void main(String[] args) {
+		
+		// read spring config java class
+		AnnotationConfigApplicationContext context = 
+				new AnnotationConfigApplicationContext(ConfigAop.class);
+		
+		// call bean from spring controller
+		TrafficFortuneService theFortuneService = context.getBean("trafficFortuneService", TrafficFortuneService.class);
+
+		System.out.println("\nMain Program: AroundDemoApp");
+		System.out.println("\n Calling getFortune ");
+
+		String data = theFortuneService.getFortune();
+		
+		System.out.println("\nMy fortune is:"+data);
+		System.out.println("Finished");
+		
+		
+		// close the context
+		context.close();
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.manny.AOPdemo.dao;
+
+import com.manny.AOPdemo.Membership;
+
+public class MembershipDao {
+	
+	Membership member = new Membership();
+	public void addSillyMember() {
+		member.setFirstName("John");
+		member.setLastName("Doe");
+		System.out.println(getClass()+": Silly member added to Membership!");
+	}
+
+}

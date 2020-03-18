@@ -1,0 +1,5 @@
+package com.manny.AOPdemo.dao;
+
+public class AccountDao {
+
+}

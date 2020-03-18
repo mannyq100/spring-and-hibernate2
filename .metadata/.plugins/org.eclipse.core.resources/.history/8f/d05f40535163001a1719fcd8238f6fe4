@@ -1,0 +1,5 @@
+package com.manny.springdemo.dao;
+
+public interface CustomerDao {
+
+}

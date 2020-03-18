@@ -1,0 +1,5 @@
+package com.manny.AOPdemo.service;
+
+public class TrafficFortuneService {
+
+}

@@ -1,0 +1,5 @@
+package com.manny.springdemo.service;
+
+public interface CustomerService {
+
+}

@@ -1,0 +1,159 @@
+package com.manny.AOPdemo.aspect;
+
+import java.util.List;
+import java.util.logging.Logger;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+import com.manny.AOPdemo.Account;
+
+@Aspect
+@Component
+@Order(2)
+public class MyDemoLoggingAspect {
+	
+	private  Logger myLogger =  Logger.getLogger(getClass().getName());
+
+	//this is where we will add all related advises for logging
+	
+	@Around("execution(* com.manny.AOPdemo.service.*.getFortune(..))")
+	public Object aroundLoggingAspect(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable {
+		
+		//print out method we are advising on
+		String method = theProceedingJoinPoint.getSignature().toShortString();
+		myLogger.info("\n=====>>> Executing @After (finally) on method: "+method);
+		
+		// begin the timestamp
+		long begin = System.currentTimeMillis();
+		
+		// now lets execute the method
+		Object result = null;	
+		
+		try {
+			result = theProceedingJoinPoint.proceed();
+		} catch (Throwable e) {
+			// log the exception
+			myLogger.warning(e.getMessage());
+			
+			//give user a custom message
+		result = "Major accident! But no worries,"
+					+ "your private AOP helicopter is on the way!";
+			
+			// to rethrow the exception
+			// throw e;
+		}
+		
+		//get the end timestamp
+		long end = System.currentTimeMillis() ;
+		
+		long duration = end-begin;
+		
+		myLogger.info("\n=====>>> Duration: "+duration/1000.0+" seconds");
+		
+		return result;
+	}
+	
+	@After("execution(* com.manny.AOPdemo.dao.AccountDao.findAccount(..))")
+	public void afterFinallyFindAccountAdvise(JoinPoint theJoinPoint) {
+		
+		// print out which method we are advising on
+		String method = theJoinPoint.getSignature().toShortString();
+		myLogger.info("\n=====>>> Executing @After (finally) on method: "+method);
+	}
+	
+	@AfterThrowing(
+			pointcut="execution(* com.manny.AOPdemo.dao.AccountDao.findAccount(..))",
+			throwing="theExc"
+			)
+	public void afterThrowingFindAccountAdvise(JoinPoint theJoinPoint, Throwable theExc) {
+		
+		// print out which method we are advising on
+				String method = theJoinPoint.getSignature().toShortString();
+				myLogger.info("\n=====>>> Executing @AfterThrowing on method: "+method);
+				
+				//print out the results of the method call
+				myLogger.info("\n=====>>> Executing @AfterThrowing on method: "+theExc);
+		
+	}
+	
+	//Add a new advise for @AfterReturningFindAccountAdvise()
+	
+	@AfterReturning(
+			pointcut="execution(* com.manny.AOPdemo.dao.AccountDao.findAccount(..))",
+			returning="result" )
+	public void afterReturnFindAccountAdvise( JoinPoint theJoinPoint, List<Account> result) {
+		
+		
+		// print out which method we are advising on
+		String method = theJoinPoint.getSignature().toShortString();
+		myLogger.info("\n=====>>> Executing @AfterReturning on method: "+method);
+		
+		//print out the results of the method call
+		myLogger.info("\n=====>>> Executing @AfterReturning on method: "+result);
+		
+		// lets post-process the data .. lets modify it
+		
+		//convert the account name to uppercase
+		convertAccountNameToUpperCase(result);
+		
+		myLogger.info("\n=====>>> Result is "+result);
+
+
+	}
+
+
+	
+	private void convertAccountNameToUpperCase(List<Account> result) {
+	
+		//loop through the accounts
+		for(Account tempAccount:result) {
+			String theUpperName = tempAccount.getName().toUpperCase();
+			
+			//update the name of the account
+			tempAccount.setName(theUpperName);
+		}	
+	}
+
+
+
+	@Before("com.manny.AOPdemo.aspect.AllAopExpressions.forDaoPackageNoGetterSetter()")
+	public void beforeAccountAdvice(JoinPoint thejoinPoint) {
+		
+		myLogger.info("\n======>>> Executing @before advise on AddAccount()!!");
+		
+		// display the method signature
+		MethodSignature methodSig = (MethodSignature)thejoinPoint.getSignature();
+		
+		myLogger.info("Method: "+methodSig);
+		
+		//display method arguments
+		Object[] args = thejoinPoint.getArgs();
+		
+		// loop thru args
+		for(Object tempArg: args) {
+			myLogger.info(tempArg.toString());
+			
+			if(tempArg instanceof Account) {
+				//downcast and print Account specific stuff
+				Account theAccount = (Account) tempArg;
+				
+				myLogger.info("account name "+theAccount.getName());
+				myLogger.info("account name "+theAccount.getLevel());
+
+			}
+		}
+	}
+
+	
+}
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AroundDempApp.java&apos; to &apos;com.manny.AOPdemo.AfterReturningDemoApp.java&apos;&#x0A;- Original project: &apos;spring-aop-zz-around-handle-exception&apos;&#x0A;- Destination element: &apos;com.manny.AOPdemo.AfterReturningDemoApp.java&apos;&#x0A;- Original element: &apos;com.manny.AOPdemo.AroundDempApp.java&apos;" description="Copy compilation unit" destination="/src&lt;com.manny.AOPdemo{AfterReturningDemoApp.java" element1="/src&lt;com.manny.AOPdemo{AroundDempApp.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1584493617175" units="1" version="1.0"/>
+</session>

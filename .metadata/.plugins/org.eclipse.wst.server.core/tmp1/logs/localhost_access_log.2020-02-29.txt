@@ -1,0 +1,11 @@
+127.0.0.1 - - [29/Feb/2020:12:11:46 -0600] "GET / HTTP/1.1" 404 709
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:11:47 -0600] "GET /web-customer-tracker/TestDbServlet HTTP/1.1" 200 117
+127.0.0.1 - - [29/Feb/2020:12:46:40 -0600] "GET / HTTP/1.1" 404 709
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:46:40 -0600] "GET /web-customer-tracker/WEB-INF/classes/com/manny/springdemo/controller/CustomerController.java HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:47:16 -0600] "GET /web-customer-tracker/WEB-INF/classes/com/manny/springdemo/controller/CustomerController.java/customer/list-customer HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:48:49 -0600] "GET /web-customer-tracker/customer/list-customer HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:49:53 -0600] "GET /web-customer-tracker/ HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:50:10 -0600] "GET /web-customer-tracker/customer/list-customer HTTP/1.1" 404 682
+127.0.0.1 - - [29/Feb/2020:12:50:58 -0600] "GET / HTTP/1.1" 404 709
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:51:14 -0600] "GET /web-customer-tracker/ HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [29/Feb/2020:12:51:26 -0600] "GET /web-customer-tracker/customer/list HTTP/1.1" 200 124

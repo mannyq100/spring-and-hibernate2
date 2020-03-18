@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Tue Mar 17 23:27:45 CDT 2020
+org.eclipse.jst.jee.server\:/binary\:/Users/emmanuelquist/Documents/new_java_workspace/web-customer-tracker/WebContent/WEB-INF/lib/spring-web-5.2.3.RELEASE-sources.jar=WEB-INF/lib/spring-web-5.2.3.RELEASE-sources.jar
+org.eclipse.jst.jee.server\:/binary\:/Users/emmanuelquist/Documents/new_java_workspace/web-customer-tracker-aop/WebContent/WEB-INF/lib/spring-web-5.2.3.RELEASE-sources.jar=WEB-INF/lib/spring-web-5.2.3.RELEASE-sources.jar
+org.eclipse.jst.jee.server\:/binary\:/Users/emmanuelquist/Documents/new_java_workspace/web-customer-tracker-aop/WebContent/WEB-INF/lib/spring-web-5.2.3.RELEASE.jar=WEB-INF/lib/spring-web-5.2.3.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:/Users/emmanuelquist/Documents/new_java_workspace/web-customer-tracker/WebContent/WEB-INF/lib/spring-web-5.2.3.RELEASE.jar=WEB-INF/lib/spring-web-5.2.3.RELEASE.jar

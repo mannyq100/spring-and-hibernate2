@@ -1,0 +1,18 @@
+package com.manny.AOPdemo.dao;
+
+import org.springframework.stereotype.Component;
+
+import com.manny.AOPdemo.Membership;
+
+@Component
+public class MembershipDao {
+	
+	Membership member = new Membership();
+	
+	public void addSillyMember() {
+		member.setFirstName("John");
+		member.setLastName("Doe");
+		System.out.println(getClass()+": Silly member added to Membership!");
+	}
+
+}

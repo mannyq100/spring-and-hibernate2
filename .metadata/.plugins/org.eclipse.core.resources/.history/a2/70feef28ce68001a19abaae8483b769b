@@ -1,0 +1,5 @@
+package com.manny.springdemo.aspect;
+
+public class CRMLoggingAspect {
+
+}

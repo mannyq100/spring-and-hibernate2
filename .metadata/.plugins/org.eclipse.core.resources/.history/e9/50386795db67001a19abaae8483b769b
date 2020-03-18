@@ -1,0 +1,28 @@
+package com.manny.AOPdemo;
+
+public class Account {
+	
+	private String name;
+	private String serviceCode;
+	
+	public String getName() {
+	System.out.println("In getAccountName method");
+
+		return name;
+	}
+	public void setName(String name) {
+		System.out.println("In setAccountName method");
+		this.name = name;
+	}
+	public String getServiceCode() {
+		System.out.println("In getAccountServiceCode method");
+		return serviceCode;
+	}
+	public void setServiceCode(String level) {
+		System.out.println("In setAccountServiceCode method");
+		this.serviceCode = level;
+	}
+	
+	
+
+}

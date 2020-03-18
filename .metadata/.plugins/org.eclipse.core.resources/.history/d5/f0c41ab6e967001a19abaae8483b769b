@@ -1,0 +1,47 @@
+package com.manny.AOPdemo.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class MyDemoLoggingAspect {
+
+	//this is where we will add all related advises for logging
+	
+	@Pointcut("execution(* com.manny.AOPdemo.dao.*.*(..))")
+	private void forDaoPackage() {}
+	
+	// create pointcut for getter methods
+	@Pointcut("execution(* com.manny.AOPdemo.dao.*.get*(..))")
+	public void getter() {}
+	
+	// create pointcut for setter methods
+	@Pointcut("execution(* com.manny.AOPdemo.dao.*.set*(..))")
+	public void setter() {}
+	
+	//create pointcut: include package...exclude getter/setter
+	@Pointcut("forDaoPackage() && !(getter() || setter())")
+	public void forDaoPackageNoGetterSetter() {}
+	
+
+	
+	@Before("forDaoPackageNoGetterSetter()")
+	public void beforeAccountAdvice() {
+		
+		System.out.println("\n======>>> Executing @before advise on AddAccount()!!");
+	}
+	
+	@Before("forDaoPackageNoGetterSetter()")
+	public void peformApiAnalytics() {
+		System.out.println("\n======>>> Peforming Api Analytics");
+	}
+	
+	@Before("forDaoPackageNoGetterSetter()")
+	public void logToCloudAsync() {
+		System.out.println("\n======>>> Logging to Cloud in async fashion");
+	}
+}
+

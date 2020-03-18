@@ -1,0 +1,52 @@
+package com.manny.AOPdemo.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+import com.manny.AOPdemo.Account;
+
+@Aspect
+@Component
+@Order(2)
+public class MyDemoLoggingAspect {
+
+	//this is where we will add all related advises for logging
+	
+
+
+	
+	@Before("com.manny.AOPdemo.aspect.AllAopExpressions.forDaoPackageNoGetterSetter()")
+	public void beforeAccountAdvice(JoinPoint thejoinPoint) {
+		
+		System.out.println("\n======>>> Executing @before advise on AddAccount()!!");
+		
+		// display the method signature
+		MethodSignature methodSig = (MethodSignature)thejoinPoint.getSignature();
+		
+		System.out.println("Method: "+methodSig);
+		
+		//diplay method arguments
+		Object[] args = thejoinPoint.getArgs();
+		
+		// loop thru args
+		for(Object tempArg: args) {
+			System.out.println(tempArg);
+			
+			if(tempArg instanceof Account) {
+				//downcast and print Account specific stuff
+				Account theAccount = (Account) tempArg;
+				
+				System.out.println("account name "+theAccount.getName());
+				System.out.println("account name "+theAccount.getLevel());
+
+			}
+		}
+	}
+
+	
+}
+
